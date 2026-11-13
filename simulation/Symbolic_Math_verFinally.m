@@ -26,6 +26,9 @@ fprintf('--- DOF (Grubler-Equation) ---\n Nl=%d  J1=%d  J2=%d  ->  F = %d\n\n',N
 %% STEP 1 : ประกาศตัวแปรสัญลักษณ์
 syms r d L H omega positive      % ขนาดทางเรขาคณิต และความเร็วเชิงมุมคงที่
 syms th real                     % มุมก้านหมุน  th = omega*t
+%% STEP 1b : ค่าพารามิเตอร์ตัวเลข (หน่วย mm, rad/s) - ใช้ชุดเดียวกันทั้งไฟล์
+p.r = 22.465;  p.d = 50.00;  p.L = 165.22;  p.H = 273.582;  p.w = 2*pi;   % 60 rpm
+assert(p.d > p.r && p.L > p.d + p.r, 'ค่าพารามิเตอร์ละเมิดเงื่อนไขการประกอบ');
 %% STEP 2 : ตำแหน่งหมุด และปลอก
 P = [ r*cos(th); r*sin(th) ];
 Y = [ 0; d ];
@@ -55,16 +58,14 @@ eqs = [ (xA-P(1))*(Y(2)-P(2)) - (yA-P(2))*(Y(1)-P(1));
 q  = [th xA yA];
 Jc = jacobian(eqs, q);                                  % 2 x 3
 for th0 = linspace(0, 2*pi, 13)
-    Tn = double(subs(T, [r d L th], [20 49.3 161.7 th0]));
-    Jn = double(subs(Jc, [r d L th xA yA], [20 49.3 161.7 th0 Tn.']));
+    Tn = double(subs(T, [r d L th], [p.r p.d p.L th0]));
+    Jn = double(subs(Jc, [r d L th xA yA], [p.r p.d p.L th0 Tn.']));
     fprintf('th = %5.1f deg : rank(J) = %d -> DOF = %d\n',th0*180/pi, rank(Jn), size(Jn,2) - rank(Jn));
 end
 %% STEP 5 : ความเร็วและความเร่งของเท้า
 V = diff(F, th)*omega;
 A = diff(V, th)*omega;
-%% STEP 6 : แทนค่าตัวเลข (หน่วย mm, rad/s)
-p.r = 22.465;  p.d = 50.00 ;  p.L = 165.22;  p.H = 273.582;  p.w = 2*pi;   % 60 rpm  (สัดส่วน d/r=2.46, L/r=8.09 ฟิตจาก trajectory ใน Fusion; หน่วย mm สมมติ r=20 ต้องแทนด้วยค่าจริง)
-assert(p.d > p.r && p.L > p.d + p.r, 'ค่าพารามิเตอร์ละเมิดเงื่อนไขการประกอบ');
+%% STEP 6 : แทนค่าตัวเลข (ใช้พารามิเตอร์ p จาก STEP 1b)
 num = @(e) subs(e, [r d L H omega], [p.r p.d p.L p.H p.w]);
 fx  = matlabFunction(num(F(1)), 'Vars', th);
 fy  = matlabFunction(num(F(2)), 'Vars', th);
