@@ -4,4 +4,4 @@
 
 | ไฟล์ / ลิงก์ | คำอธิบาย | วันที่ |
 |---|---|---|
-| [ชื่อไฟล์] | [อธิบาย] | [YYYY-MM-DD] |
+| [วิดีโอสาธิต (YouTube Shorts)](https://youtube.com/shorts/H6VvG0fA-Pw) | การทำงานของกลไกเดินแบบ linkage ขาเดียว (ดูเหตุผลที่ทำขาเดียวใน [`simulation/README.md`](../simulation/README.md#ทำไมทำเป็นขาเดียว)) | 2026-11-13 |
