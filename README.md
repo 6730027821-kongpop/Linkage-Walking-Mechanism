@@ -1,4 +1,4 @@
-# [ชื่อโปรเจกต์ / Project Name]
+# [Linkage Walking Mechanism]
 
 > Template สำหรับเริ่มโปรเจกต์ใหม่ — กด **Use this template** บน GitHub เพื่อสร้าง repository ของโปรเจกต์คุณ
 > A reusable project template — click **Use this template** on GitHub to start a new project.
