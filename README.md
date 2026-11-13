@@ -1,26 +1,19 @@
-# [Linkage Walking Mechanism]
+# Linkage Walking Mechanism
 
-> Template สำหรับเริ่มโปรเจกต์ใหม่ — กด **Use this template** บน GitHub เพื่อสร้าง repository ของโปรเจกต์คุณ
-> A reusable project template — click **Use this template** on GitHub to start a new project.
+กลไกเดินแบบ linkage (ขาเดียว) — วิเคราะห์จลนศาสตร์ด้วย MATLAB Symbolic Math และสร้างชิ้นงานจริง
+
+🎥 **วิดีโอสาธิต:** [YouTube Shorts](https://youtube.com/shorts/H6VvG0fA-Pw)
 
 ## ภาพรวมโปรเจกต์ (Project overview)
 
 | หัวข้อ | รายละเอียด |
 |---|---|
-| **ชื่อโปรเจกต์** | [ใส่ชื่อโปรเจกต์] |
+| **ชื่อโปรเจกต์** | Linkage Walking Mechanism |
 | **ปัญหา / วัตถุประสงค์** | [อธิบายปัญหาที่ต้องการแก้] |
 | **สมาชิกทีม** | [ชื่อ – หน้าที่] |
 | **อาจารย์ที่ปรึกษา** | [ชื่อ] |
 | **สถานะ** | 🟡 วางแผน (Planning) |
-| **อัปเดตล่าสุด** | [YYYY-MM-DD] |
-
-## เริ่มต้นใช้งาน (Getting started)
-
-1. กด **Use this template → Create a new repository** บน GitHub
-2. แก้ชื่อโปรเจกต์และตารางภาพรวมด้านบน
-3. อ่าน `README.md` ในแต่ละโฟลเดอร์ แล้วใส่ข้อมูลของโปรเจกต์ตัวเอง (โฟลเดอร์ไหนไม่ใช้ ลบได้)
-4. ใช้แท็บ **Issues** สร้างงานย่อย และใช้ **Projects** ติดตามความคืบหน้า
-5. เลือก License ก่อนเผยแพร่ผลงาน (ดู `LICENSE`)
+| **อัปเดตล่าสุด** | 2026-11-13 |
 
 ## โครงสร้าง (Repository structure)
 
