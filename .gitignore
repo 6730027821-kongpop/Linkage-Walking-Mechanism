@@ -1,0 +1,33 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# MATLAB / Simulink
+slprj/
+*.asv
+*.autosave
+*.slxc
+
+# CAD lock / backup files
+~$*
+*.bak
+*.tmp
+*.lck
+
+# Arduino / PlatformIO
+.pio/
+build/
+
+# Secrets
+.env
