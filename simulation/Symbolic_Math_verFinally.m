@@ -115,7 +115,9 @@ ylabel('accel. [mm/s^2]'); xlabel('\theta [deg]'); legend('a_x','a_y');
 saveas(gcf, 'fig_kinematics_single_leg.png');
 %% STEP 9 : ภาพเคลื่อนไหวของกลไก
 figure('Name','Animation (single leg)');
-gifFile = 'Mechanism.gif';                                      % ไฟล์ GIF ที่จะบันทึก
+scriptDir = fileparts(mfilename('fullpath'));                    % โฟลเดอร์ของไฟล์ .m นี้
+if isempty(scriptDir), scriptDir = pwd; end
+gifFile = fullfile(scriptDir, 'Mechanism.gif');                 % ไฟล์ GIF ที่จะบันทึก
 firstFrame = true;
 for k = 1:20:Ns
     cla; hold on; axis equal; grid on; axis([-150 150 -150 200]);
