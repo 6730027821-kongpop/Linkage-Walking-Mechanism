@@ -74,7 +74,11 @@ F=T-\begin{bmatrix}0\\ H\end{bmatrix}
 v=\omega\frac{dF}{d\theta},\qquad a=\omega^2\frac{d^2F}{d\theta^2}
 ```
 
-![เส้นทางเท้าและกราฟตำแหน่ง ความเร็ว ความเร่ง](media/Render.png)
+![เส้นทางเท้าของกลไก พร้อมช่วงแตะพื้น ช่วงก้าว และความสูงยกเท้า](media/foot_trajectory_matlab.png)
+
+![ตำแหน่ง ความเร็ว และความเร่งของเท้าเทียบกับมุมก้านหมุน](media/foot_kinematics_matlab.png)
+
+กราฟสร้างจากข้อมูลที่ได้จากการรัน `Symbolic_Math_verFinally.m` ใน MATLAB (ไฟล์ต้นฉบับอยู่ใน [simulation/figures/](simulation/figures/)) ช่วงแตะพื้นอยู่ที่มุมก้านหมุนประมาณ 225°–315°
 
 ### ผลลัพธ์
 
@@ -90,7 +94,7 @@ v=\omega\frac{dF}{d\theta},\qquad a=\omega^2\frac{d^2F}{d\theta^2}
 | ความเร็วเท้าสูงสุด | 566.4 mm/s |
 | ความเร่งเท้าสูงสุด | 4836 mm/s² |
 
-ถือว่าเท้าแตะพื้นเมื่อสูงไม่เกิน 5 % ของความสูงยกเท้า
+ถือว่าเท้าแตะพื้นเมื่อสูงไม่เกิน 5 % ของความสูงยกเท้า ค่าทั้งหมดตรงกับผลที่รันใน MATLAB
 
 ## Multibody simulation
 
