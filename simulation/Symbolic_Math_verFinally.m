@@ -27,7 +27,7 @@ fprintf('--- DOF (Grubler-Equation) ---\n Nl=%d  J1=%d  J2=%d  ->  F = %d\n\n',N
 syms r d L H omega positive      % ขนาดทางเรขาคณิต และความเร็วเชิงมุมคงที่
 syms th real                     % มุมก้านหมุน  th = omega*t
 %% STEP 1b : ค่าพารามิเตอร์ตัวเลข (หน่วย mm, rad/s) - ใช้ชุดเดียวกันทั้งไฟล์
-p.r = 22.465;  p.d = 50.00;  p.L = 165.22;  p.H = 273.582;  p.w = 2*pi;   % 60 rpm
+p.r = 20.00;  p.d = 50.00;  p.L = 165.22;  p.H = 273.582;  p.w = 2*pi;   % 60 rpm
 assert(p.d > p.r && p.L > p.d + p.r, 'ค่าพารามิเตอร์ละเมิดเงื่อนไขการประกอบ');
 %% STEP 2 : ตำแหน่งหมุด และปลอก
 P = [ r*cos(th); r*sin(th) ];
