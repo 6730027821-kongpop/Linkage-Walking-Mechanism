@@ -76,11 +76,11 @@ F=T-\begin{bmatrix}0\\ H\end{bmatrix}
 v=\omega\frac{dF}{d\theta},\qquad a=\omega^2\frac{d^2F}{d\theta^2}
 ```
 
-![เส้นทางเท้าของกลไก พร้อมช่วงแตะพื้น ช่วงก้าว และความสูงยกเท้า](media/foot_trajectory_matlab.png)
+![เส้นทางเท้าของกลไก พร้อมช่วงแตะพื้น ช่วงก้าว และความสูงยกเท้า](media/fig_trajectory_single_leg.png)
 
-![ตำแหน่ง ความเร็ว และความเร่งของเท้าเทียบกับมุมก้านหมุน](media/foot_kinematics_matlab.png)
+![ตำแหน่ง ความเร็ว และความเร่งของเท้าเทียบกับมุมก้านหมุน](media/fig_kinematics_single_leg.png)
 
-กราฟสร้างจากข้อมูลที่ได้จากการรัน `Symbolic_Math_verFinally.m` ใน MATLAB (ไฟล์ต้นฉบับอยู่ใน [simulation/figures/](simulation/figures/)) ช่วงแตะพื้นอยู่ที่มุมก้านหมุนประมาณ 225°–315°
+กราฟจากการรัน `Symbolic_Math_verFinally.m` ใน MATLAB (ไฟล์ต้นฉบับอยู่ใน [simulation/figures/](simulation/figures/)) ช่วงแตะพื้นอยู่ที่มุมก้านหมุนประมาณ 225°–315°
 
 ### ผลลัพธ์
 
