@@ -30,6 +30,10 @@
 
 ## แบบจำลองกลไก
 
+![แผนภาพคิเนแมติกของกลไกเดินขาเดียว](media/kinematic_diagram.png)
+
+แผนภาพคิเนแมติก (kinematic diagram) ที่ θ = 160°: วงกลมเปิด = ข้อต่อหมุน (Revolute), สี่เหลี่ยม = ตัวเลื่อน (Prismatic), เส้นแรเงา = ฐานยึดอยู่กับที่ เลขในวงกลม = หมายเลขลิงก์
+
 ![ลิงก์และจุดต่อของกลไกเดินขาเดียวบนแบบจำลอง Simscape Multibody](media/links_joints_multibody.png)
 
 ภาพจากแบบจำลอง Simscape Multibody (`Multibody walking linkage.slx`) พร้อมระบุลิงก์และจุดต่อ
