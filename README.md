@@ -1,44 +1,104 @@
 # Linkage Walking Mechanism
 
-กลไกเดินแบบ linkage (ขาเดียว) — วิเคราะห์จลนศาสตร์ด้วย MATLAB Symbolic Math และสร้างชิ้นงานจริง
+**กลุ่ม ราชาแมชชีน**
 
-🎥 **วิดีโอสาธิต:** [YouTube Shorts](https://youtube.com/shorts/H6VvG0fA-Pw)
+| ชื่อ – นามสกุล | รหัสนิสิต | หน้าที่ |
+|---|---|---|
+| ก้องภพ เพียรการ | 6730027821 | Symbolic Math |
+| ณพล อัตถากร | 6730137121 | Hardware, Multibody |
 
-## ภาพรวมโปรเจกต์ (Project overview)
+วิเคราะห์จลนศาสตร์ของกลไกเดินแบบ linkage ขาเดียวด้วย Symbolic Math, จำลองด้วย Simscape Multibody และสร้างชิ้นงานจริง
 
-| หัวข้อ | รายละเอียด |
+## ภาพเคลื่อนไหวกลไก
+
+![กลไกเดินขาเดียวและกราฟตำแหน่งเท้า](media/Mechanism.gif)
+
+🎥 [วิดีโอชิ้นงานจริง (YouTube Shorts)](https://youtube.com/shorts/H6VvG0fA-Pw) · [วิดีโอ Multibody simulation](simulation/MultibodyWalkingLinkage1.mp4)
+
+## ไฟล์ส่งงาน
+
+| ไฟล์ | เนื้อหา |
 |---|---|
-| **ชื่อโปรเจกต์** | Linkage Walking Mechanism |
-| **ปัญหา / วัตถุประสงค์** | [อธิบายปัญหาที่ต้องการแก้] |
-| **สมาชิกทีม** | [ชื่อ – หน้าที่] |
-| **อาจารย์ที่ปรึกษา** | [ชื่อ] |
-| **สถานะ** | 🟡 วางแผน (Planning) |
-| **อัปเดตล่าสุด** | 2026-11-13 |
+| [Symbolic_Math_verFinally.m](simulation/Symbolic_Math_verFinally.m) | Symbolic analysis: DOF, ตำแหน่ง ความเร็ว ความเร่งของเท้า, กราฟ และภาพเคลื่อนไหว |
+| [Multibody walking linkage.slx](simulation/Multibody%20walking%20linkage.slx) | แบบจำลอง Simscape Multibody |
+| [MultibodyWalkingLinkage1.mp4](simulation/MultibodyWalkingLinkage1.mp4) | วิดีโอผลการจำลอง Multibody |
+| [media/](media/) | ภาพกลไก กราฟ และภาพเคลื่อนไหว |
+| [hardware/](hardware/) | ไฟล์ชิ้นส่วนและรายการวัสดุ |
 
-## โครงสร้าง (Repository structure)
+## แบบจำลองกลไก
 
-| โฟลเดอร์ | ใช้เก็บอะไร |
+![แผนภาพลิงก์และจุดต่อของกลไกเดินขาเดียว](media/links_joints.png)
+
+ก้านหมุน (crank) รัศมี $r$ หมุนรอบจุด $O$ ที่ 60 rpm หมุด $P$ บนก้านหมุนขับก้านแดงยาว $L$ ซึ่งลอดผ่านปลอก $Y$ ที่ $(0, d)$ ไปสิ้นสุดที่ปลายบน $T$ ขาต่อกับ $T$ และวิ่งผ่านตัวเลื่อนในร่องแนวนอน ขาจึงตั้งตรงเสมอ เท้า $F$ อยู่ใต้ $T$ เป็นระยะ $H$
+
+| ลิงก์ | ชิ้นส่วน |
 |---|---|
-| `hardware/mechanical/` | ไฟล์ CAD, แบบ drawing, ไฟล์สำหรับผลิต (STL, DXF) |
-| `hardware/electronics/` | วงจร (schematic), PCB, แผนผังการต่อสาย |
-| `hardware/bom.csv` | รายการวัสดุ/ชิ้นส่วน (Bill of Materials) พร้อมราคาและแหล่งซื้อ |
-| `software/firmware/` | โค้ดไมโครคอนโทรลเลอร์ (Arduino, ESP32, STM32) |
-| `software/application/` | โปรแกรมบน PC / Raspberry Pi / เว็บ |
-| `machine-skills/` | ขั้นตอนการใช้เครื่องจักร, G-code, คำสั่งเครื่อง |
-| `simulation/` | โมเดลจำลอง, สคริปต์, สมมติฐาน, ผลการจำลอง |
-| `docs/` | คู่มือประกอบ ติดตั้ง ใช้งาน และบำรุงรักษา |
-| `media/` | รูป, GIF, ลิงก์วิดีโอสาธิต |
-| `experiments/` | ขั้นตอนการทดลอง, ข้อมูลดิบ, ผลลัพธ์ |
-| `publications/` | รายงาน, บทความ, สไลด์นำเสนอ |
+| 0 | ฐาน (ground) |
+| 1 | ก้านหมุน (crank) |
+| 2 | ก้านแดง |
+| 3 | ปลอก $Y$ |
+| 4 | ขา |
+| 5 | ตัวเลื่อนแนวนอน |
 
-## แนวทางการทำงานร่วมกัน (Collaboration)
+| จุดต่อ | ลิงก์ | ชนิด |
+|---|---|---|
+| $O$ | 0–1 | Revolute |
+| $P$ | 1–2 | Revolute |
+| $Y$ | 2–3 | Prismatic (ก้านเลื่อนผ่านปลอก) |
+| $Y$ | 3–0 | Revolute |
+| $T$ | 2–4 | Revolute |
+| ตัวเลื่อน | 4–5 | Prismatic (ขาเลื่อนขึ้นลง) |
+| ร่อง | 5–0 | Prismatic (ร่องแนวนอน) |
 
-- ตั้งชื่อไฟล์ให้สื่อความหมาย เช่น `gear-housing_rev02.step` แทน `final_final2.step`
-- เขียน commit message ให้ชัดเจน เช่น `Add motor mount v2 with M4 holes`
-- ระบุหน่วย, เวอร์ชันซอฟต์แวร์, และสมมติฐานทุกครั้ง
-- ห้าม commit รหัสผ่าน, API key หรือข้อมูลส่วนตัว
-- ไฟล์ใหญ่ (CAD, วิดีโอ, ผลจำลอง) ควรใช้ [Git LFS](https://git-lfs.com/)
+$n = 6$, $j_1 = 7$, $j_2 = 0$ จึงได้ $M = 3(n-1) - 2j_1 - j_2 = 1$ และตรวจซ้ำด้วย rank ของ Jacobian ของสมการเงื่อนไขตลอดรอบการหมุน
 
-## ความปลอดภัยและการตรวจสอบ (Safety & validation)
+### ทำไมทำเป็นขาเดียว
 
-บันทึกอันตราย มาตรการป้องกัน และขีดจำกัดการใช้งานก่อนทดสอบฮาร์ดแวร์จริง และตรวจสอบผลคำนวณ/ผลจำลองกับค่าที่วัดได้จริงเสมอเมื่อทำได้
+เลือกวิเคราะห์และสร้างกลไกเพียง **ขาเดียว** เนื่องจาก **ข้อจำกัดในการประกอบ Hardware** การจำลองและผลลัพธ์ทั้งหมดจึงเป็นของขาเดียว
+
+## Symbolic analysis
+
+ปลายบน $T$ ต้องอยู่บนเส้นตรงเดียวกับ $P$ และ $Y$ และห่างจาก $P$ เท่ากับ $L$ แก้สมการเงื่อนไขด้วย Symbolic Math Toolbox ได้
+
+```math
+P=r\begin{bmatrix}\cos\theta\\ \sin\theta\end{bmatrix},\qquad
+\rho=\sqrt{r^2+d^2-2rd\sin\theta},\qquad
+T=P+\frac{L}{\rho}(Y-P),\qquad
+F=T-\begin{bmatrix}0\\ H\end{bmatrix}
+```
+
+ความเร็วและความเร่งของเท้าได้จากการหาอนุพันธ์เทียบ $\theta$ เมื่อ $\omega$ คงที่
+
+```math
+v=\omega\frac{dF}{d\theta},\qquad a=\omega^2\frac{d^2F}{d\theta^2}
+```
+
+![เส้นทางเท้าและกราฟตำแหน่ง ความเร็ว ความเร่ง](media/Render.png)
+
+### ผลลัพธ์
+
+พารามิเตอร์: $r = 22.465$, $d = 50$, $L = 165.22$, $H = 273.582$ mm, 60 rpm
+
+| ค่า | ผล |
+|---|---|
+| ช่วงก้าวของเท้า (stride) | 110.0 mm |
+| ความสูงยกเท้า (step height) | 44.9 mm |
+| Duty factor (ช่วงแตะพื้นต่อรอบ) | 0.27 |
+| ความเร็วเท้าช่วงแตะพื้น (เฉลี่ย) | 182.9 mm/s (แกว่ง 0.9 %) |
+| ระยะเท้าลากช่วงแตะพื้นต่อรอบ | 48.7 mm |
+| ความเร็วเท้าสูงสุด | 705.8 mm/s |
+| ความเร่งเท้าสูงสุด | 6588 mm/s² |
+
+ถือว่าเท้าแตะพื้นเมื่อสูงไม่เกิน 5 % ของความสูงยกเท้า
+
+## Multibody simulation
+
+จำลองกลไกด้วย Simscape Multibody เพื่อดูการเคลื่อนที่ของชิ้นส่วนจริงเทียบกับผล Symbolic ดูผลได้ที่ [MultibodyWalkingLinkage1.mp4](simulation/MultibodyWalkingLinkage1.mp4)
+
+## การรัน
+
+ใช้ MATLAB พร้อม **Symbolic Math Toolbox** เปิด [Symbolic_Math_verFinally.m](simulation/Symbolic_Math_verFinally.m) แล้วกด Run ผลแสดงใน Command Window และบันทึกกราฟเป็น `fig_trajectory_single_leg.png` กับ `fig_kinematics_single_leg.png`
+
+แบบจำลอง Multibody ต้องใช้ **Simulink** และ **Simscape Multibody** เปิด `Multibody walking linkage.slx` แล้วกด Run
+
+แบบจำลองใช้ชิ้นส่วนแข็งเกร็ง ความเร็วก้านหมุนคงที่ ไม่มีระยะคลอนที่จุดต่อ หน่วย mm, s, rad ไม่วิเคราะห์แรงหรือความแข็งแรง
