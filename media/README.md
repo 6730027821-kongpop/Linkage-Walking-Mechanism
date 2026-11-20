@@ -9,4 +9,4 @@
 | [links_joints_multibody.png](links_joints_multibody.png) | ลิงก์และจุดต่อบนภาพจาก Simscape Multibody | 2026-11-20 |
 | [fig_trajectory_single_leg.png](fig_trajectory_single_leg.png) | เส้นทางเท้าและช่วงแตะพื้น (MATLAB) | 2026-11-20 |
 | [fig_kinematics_single_leg.png](fig_kinematics_single_leg.png) | ตำแหน่ง ความเร็ว ความเร่งของเท้าเทียบมุมก้านหมุน (MATLAB) | 2026-11-20 |
-| [kinematic_diagram.png](kinematic_diagram.png) | แผนภาพคิเนแมติกของกลไก (ลิงก์ จุดต่อ และขนาด r, d, L, H) | 2026-11-20 |
+| [kinematic_diagram_sketch.png](kinematic_diagram_sketch.png) | แผนภาพคิเนแมติกของกลไก (ลิงก์และจุดต่อ) | 2026-11-20 |
