@@ -12,7 +12,9 @@
 
 ## ภาพเคลื่อนไหวกลไก
 
-![กลไกเดินขาเดียวและกราฟตำแหน่งเท้า](media/mechanism_animation.gif)
+![ภาพเคลื่อนไหวกลไกเดินขาเดียวจาก MATLAB](media/mechanism_animation_matlab.gif)
+
+ภาพเคลื่อนไหวจากการรัน `Symbolic_Math_verFinally.m` ใน MATLAB: ก้านหมุน (น้ำเงิน) ก้านแดง ปลอก $Y$ (เหลือง) และขา (ดำ)
 
 🎥 [วิดีโอชิ้นงานจริง (YouTube Shorts)](https://youtube.com/shorts/H6VvG0fA-Pw) · [วิดีโอ Multibody simulation](simulation/MultibodyWalkingLinkage1.mp4)
 
