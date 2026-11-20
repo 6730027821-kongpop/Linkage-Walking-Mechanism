@@ -131,13 +131,5 @@ for k = 1:20:Ns
     plot(Yn(1), Yn(2), 's', 'MarkerFaceColor', 'y', 'MarkerSize', 10); % ปลอก Y
     plot(x(1:k), yraw(1:k), 'b:');                                % trajectory เท้า
     drawnow;
-    % บันทึกเฟรมนี้ลง GIF (ใช้ได้ทุกเวอร์ชันของ MATLAB)
-    [img, cmap] = rgb2ind(frame2im(getframe(gcf)), 256);
-    if firstFrame
-        imwrite(img, cmap, gifFile, 'gif', 'LoopCount', Inf, 'DelayTime', 0.05);
-        firstFrame = false;
-    else
-        imwrite(img, cmap, gifFile, 'gif', 'WriteMode', 'append', 'DelayTime', 0.05);
     end
 end
-fprintf('บันทึกภาพเคลื่อนไหวเป็น %s แล้ว\n', gifFile);
