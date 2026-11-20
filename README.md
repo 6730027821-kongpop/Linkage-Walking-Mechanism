@@ -26,7 +26,6 @@
 | [Multibody walking linkage.slx](simulation/Multibody%20walking%20linkage.slx) | แบบจำลอง Simscape Multibody |
 | [MultibodyWalkingLinkage1.mp4](simulation/MultibodyWalkingLinkage1.mp4) | วิดีโอผลการจำลอง Multibody |
 | [media/](media/) | ภาพกลไก กราฟ และภาพเคลื่อนไหว |
-| [hardware/](hardware/) | ไฟล์ชิ้นส่วนและรายการวัสดุ |
 
 ## แบบจำลองกลไก
 
