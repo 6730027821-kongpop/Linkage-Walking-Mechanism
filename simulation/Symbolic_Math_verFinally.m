@@ -115,6 +115,8 @@ ylabel('accel. [mm/s^2]'); xlabel('\theta [deg]'); legend('a_x','a_y');
 saveas(gcf, 'fig_kinematics_single_leg.png');
 %% STEP 9 : ภาพเคลื่อนไหวของกลไก
 figure('Name','Animation (single leg)');
+gifFile = 'Mechanism.gif';                                      % ไฟล์ GIF ที่จะบันทึก
+firstFrame = true;
 for k = 1:20:Ns
     cla; hold on; axis equal; grid on; axis([-150 150 -150 200]);
     a  = thn(k);
@@ -127,4 +129,13 @@ for k = 1:20:Ns
     plot(Yn(1), Yn(2), 's', 'MarkerFaceColor', 'y', 'MarkerSize', 10); % ปลอก Y
     plot(x(1:k), yraw(1:k), 'b:');                                % trajectory เท้า
     drawnow;
+    % บันทึกเฟรมนี้ลง GIF (ใช้ได้ทุกเวอร์ชันของ MATLAB)
+    [img, cmap] = rgb2ind(frame2im(getframe(gcf)), 256);
+    if firstFrame
+        imwrite(img, cmap, gifFile, 'gif', 'LoopCount', Inf, 'DelayTime', 0.05);
+        firstFrame = false;
+    else
+        imwrite(img, cmap, gifFile, 'gif', 'WriteMode', 'append', 'DelayTime', 0.05);
+    end
 end
+fprintf('บันทึกภาพเคลื่อนไหวเป็น %s แล้ว\n', gifFile);
