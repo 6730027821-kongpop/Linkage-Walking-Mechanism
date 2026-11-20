@@ -131,5 +131,4 @@ for k = 1:20:Ns
     plot(Yn(1), Yn(2), 's', 'MarkerFaceColor', 'y', 'MarkerSize', 10); % ปลอก Y
     plot(x(1:k), yraw(1:k), 'b:');                                % trajectory เท้า
     drawnow;
-    end
 end
